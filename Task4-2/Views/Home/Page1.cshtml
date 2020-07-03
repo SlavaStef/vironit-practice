@@ -11,8 +11,15 @@
     <title>Page1</title>
 </head>
 <body>
+    <h1>Num of requests: @ViewBag.Counter</h1>
+    <p><h3>Visit:</h3></p>
     <div>
-        Some text
+        @Html.ActionLink("Page 2", "Page2", "Home")
     </div>
+    <div>
+        @Html.ActionLink("Page 3", "Page3", "Home")
+    </div>
+
+
 </body>
 </html>

@@ -10,16 +10,19 @@ namespace Task4_2.Controllers
     {
         public ActionResult Page1()
         {
+            ViewBag.Counter = Global.requestCounter;
             return View();
         }
 
         public ActionResult Page2()
         {
+            ViewBag.Counter = Global.requestCounter;
             return View();
         }
 
         public ActionResult Page3()
         {
+            ViewBag.Counter = Global.requestCounter;
             return View();
         }
     }
