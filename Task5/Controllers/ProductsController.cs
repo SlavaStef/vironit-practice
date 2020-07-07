@@ -23,10 +23,9 @@ namespace Task5.Controllers
             return View(products);
         }
 
-        public ActionResult Details()
-        {
-            ViewBag.Message = "Product Details";
-            return View();
+        public ActionResult Details(Product product)
+        {            
+            return View(product);
         }
 
         [HttpGet]
@@ -44,7 +43,7 @@ namespace Task5.Controllers
                 int index = products.FindIndex(x => x.Id == product.Id);
                 products[index] = product;
 
-                return RedirectToAction("List");
+                return RedirectToAction("Details", product);
             }               
                             
             return View(product);

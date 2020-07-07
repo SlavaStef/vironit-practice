@@ -1,7 +1,21 @@
-﻿
+﻿@model Task5.Models.Product
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>@ViewBag.Message</h2>
+    <h2>Product successfully edited</h2>
 
+<div>
+    <h4>Name:</h4> @Model.Name
+</div>
+<div>
+    <h4>Description:</h4> @Model.Description
+</div>
+
+<div>    
+    <h4>Price:</h4> @Model.Price
+</div>
+
+<div>
+    @Html.ActionLink("Back to list", "List", new { } , new { @class = "btn btn-primary" })
+</div>
