@@ -13,6 +13,7 @@
             <th scope="col">Product name</th>
             <th scope="col">Description</th>
             <th scope="col" >Price</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +24,9 @@
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td><b>@item.Price.ToString("c")</b></td>
+                <td>
+                    <input type="button" class="btn btn-primary" method="get" value="Edit" onclick="location.href='@Url.Action("Edit", "Products", new { id = item.Id})'" />
+                </td>
             </tr>
         }
     </tbody>

@@ -1,0 +1,35 @@
+﻿@model Task5.Models.Product
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit @Model.Name</h2>
+
+<form method="post" action="">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBox("Name", Model.Name, new { type = "text", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        @Html.TextArea("Description", Model.Description, new { type = "text", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Price</label>
+        @Html.TextBox("Price", Model.Price, new { type = "text", @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" }, "nsdfjhbasrf")
+    </div>
+
+    <input class="btn btn-primary" type="submit" value="Save" />
+
+    @Html.ActionLink("Back to list", "List")
+</form>

@@ -106,11 +106,13 @@
     <Content Include="Web.config" />
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Customers\Add.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Data\Products.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
