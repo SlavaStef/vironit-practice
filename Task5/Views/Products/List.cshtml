@@ -9,10 +9,9 @@
 <table class="table table-hover">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Id</th>
             <th scope="col">Product name</th>
             <th scope="col">Description</th>
-            <th scope="col" >Price</th>
+            <th scope="col">Price</th>
             <th></th>
         </tr>
     </thead>
@@ -20,7 +19,6 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>@item.Description</td>
                 <td><b>@item.Price.ToString("c")</b></td>
@@ -33,5 +31,45 @@
 </table>
 
 <div>
-    @Html.ActionLink("Download all as .xls", "ExcelOutputAll", "Output", new { }, new { @class = "btn btn-primary" })
+    <h3>Filter</h3>
+    <div>
+        @using (Html.BeginForm("ListFilter", "Products", FormMethod.Post))
+        {
+            <div class="form-group mx-sm-3 mb-2">
+                <div class="form-group row">
+                    <label for="category" class="col-sm-2 col-form-label">Category</label>
+                    <div class="col-sm-3">
+                        <select name="category" id="Category" class="form-control">
+                            <option></option>
+                            <option>Laptop</option>
+                            <option>Tablet</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group row">
+                        <label for="priceFrom" class="col-sm-2 col-form-label">Price from</label>
+                        <div class="col-sm-3">
+                            <input type="number" name="priceFrom" id="priceFrom" value="0" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="priceTo" class="col-sm-2 col-form-label">Price to</label>
+                        <div class="col-sm-3">
+                            <input type="number" name="priceTo" id="priceTo" value="1000" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary" value="Filter" />
+            </div>
+        }
+    </div>
+</div>
+
+
+<div>
+    @Html.ActionLink("Save as .xls", "ExcelOutputAll", "Output", new { }, new { @class = "btn btn-primary" })
 </div>

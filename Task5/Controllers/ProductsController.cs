@@ -18,9 +18,16 @@ namespace Task5.Controllers
             products = Task5.Data.Products.ProductList;
         }
 
-        public ActionResult List()
-        {            
+        public ActionResult List(List<Product> products)
+        {
+            if (products == null) products = Products.ProductList;
             return View(products);
+        }
+
+        public ActionResult ListFilter(Categories category, int priceFrom, int priceTo)
+        {
+            List<Product> productsFiltered = Products.ProductList.Where(x => x.Category == category && x.Price > priceFrom && x.Price < priceTo).ToList();
+            return View("List", productsFiltered);
         }
 
         public ActionResult Details(Product product)

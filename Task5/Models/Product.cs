@@ -22,5 +22,13 @@ namespace Task5.Models
         [Required(ErrorMessage = "Description required")]
         [MinLength(20, ErrorMessage = "Description length is 20 to 200")]
         public string Description { get; set; }
+
+        public Categories Category { get; set; }
+    }
+
+    public enum Categories
+    {
+        Laptop,
+        Tablet
     }
 }
