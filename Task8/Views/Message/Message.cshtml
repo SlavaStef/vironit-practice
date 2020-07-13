@@ -1,0 +1,37 @@
+﻿@model Task8.Models.Message
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section Header
+{
+    @Model.Type.ToString() message
+}
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Date/time</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Id</td>
+            <td>@Model.Type.ToString()</td>
+            <td>@Model.Description</td>
+            <td>@Model.Date</td>
+        </tr>
+    </tbody>
+</table>
+
+
+@if (Model.Id == 1)
+{
+    <script>
+        alert("Найдены ошибки");
+    </script>
+}
