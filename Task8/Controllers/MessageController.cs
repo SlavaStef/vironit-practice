@@ -19,7 +19,15 @@ namespace Task8.Controllers
         public ActionResult Index()
         {
             Random random = new Random();
+
+            ViewBag.Message = "Это вызов частичного представления из обычного";
             return View("Message", messages[random.Next(0,2)]);
+        }
+
+        public ActionResult Partial()
+        {
+            ViewBag.Message = "Это частичное представление.";
+            return PartialView();
         }
     }
 }
